@@ -1,0 +1,56 @@
+[merge]
+	tool = kdiff3
+[mergetool "kdiff3"]
+	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
+[diff]
+    #tool = vimdiff
+    tool = winmerge
+[difftool "winmerge"]
+	path = C:/Program Files (x86)/WinMerge/winmergeu.exe
+	cmd = \"C:/Program Files (x86)/WinMerge/winmergeu.exe\" -r -u \"$LOCAL\" \"$REMOTE\"
+[format]
+	pretty = %Cblue%h%Creset %Cgreen[%cr]%Creset (%an) %s
+[alias]
+    s = status
+    a = add
+    all = add -A
+    b = branch
+    bd = branch -d
+    sf = show --pretty="format:" --name-only
+    co = checkout
+    c = commit -m
+    ci = commit
+    ca = commit --amend
+    d = diff
+    dc = diff --cached
+    dt = difftool
+    dtc = difftool --cached
+    #pl = "!f() { git fetch; git rebase --preserve-merges origin/`git rev-parse --abbrev-ref HEAD` ; }; f"
+    pl = pull --rebase
+    su = submodule update --init --recursive
+    ps = push
+    l = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)%an%Creset' --abbrev-commit --date=relative
+    lc = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)%an%Creset' --abbrev-commit --date=relative
+    lga = log --graph --oneline --all --decorate
+    out = log origin..HEAD
+    # Alternate log display from Scott Chacon
+    lol = log --pretty=oneline --abbrev-commit --graph --decorate
+    cl = clean -xdf
+[user]
+    name = Nedyalko Nikolov
+    email = nedyalko.nikolov@telerik.com
+[difftool "sourcetree"]
+	cmd = 'C:/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/vsdiffmerge.exe' $LOCAL $REMOTE //t
+[http]
+	postBuffer = 5242880000
+[branch]
+	autosetuprebase = always
+[push]
+	default = upstream
+[core]
+	compression = 0
+[mergetool "sourcetree"]
+	cmd = 'C:/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/vsdiffmerge.exe' $REMOTE $LOCAL $BASE $MERGED //m
+	trustExitCode = true
+[difftool]
+	prompt = false 
