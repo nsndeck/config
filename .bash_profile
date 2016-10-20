@@ -5,6 +5,7 @@ alias tta="tns test android"
 alias tla="tns livesync android"
 alias tlat="tns livesync android --path tests"
 alias trat="tns run android --path tests"
+alias trab="tns run android --bundle"
 alias ll="ls -al"
 alias gs="git status"
 
