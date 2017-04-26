@@ -35,6 +35,8 @@ CTRL-R - redo the last undo action
 
 U: return the last line which was modified to its original state (reverse all changes in last modified line)
 
+set ff=unix - sets Unix style line endings
+
 git:
 
 git rebase -i HEAD~3 (on a local branch!!! brings up an editor to squash commits (merge in one)).
@@ -84,6 +86,7 @@ grep --exclude=*.tgz -rnw "path" -e "pattern" - find all files that contains str
 grep --exclude-dir={node_modules,platforms} -rnw "path" -e "pattern" - find all files that contains string pattern within directory 'path' -r recursive, -w - match whole word, -n line number
 
 source ~/.bashrc (. ~/.bashrc - short version) - reloads .bashrc in case there is a change in it. For example adding a new alias.
+/etc/group - stores information about user groups in linux
 
 TNS
 
