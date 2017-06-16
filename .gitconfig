@@ -1,7 +1,13 @@
 [merge]
-	tool = kdiff3
+    tool = winmerge
+    #tool = vimdiff
 [mergetool "kdiff3"]
 	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
+[mergetool "winmerge"]
+    name = WinMerge
+    trustExitCode = true
+	path = C:/Program Files (x86)/WinMerge/winmergeu.exe
+    cmd = \"C:/Program Files (x86)/WinMerge/winmergeu.exe\" -u -e -dl \"Base\" -dr \"Mine\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 [diff]
     #tool = vimdiff
     tool = winmerge
@@ -30,7 +36,8 @@
     su = submodule update --init --recursive
     ps = push
     l = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)%an%Creset' --abbrev-commit --date=relative
-    lc = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)%an%Creset' --abbrev-commit --date=relative
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)%an%Creset' --abbrev-commit --date=relative
+    lc = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     lga = log --graph --oneline --all --decorate
     out = log origin..HEAD
     # Alternate log display from Scott Chacon
@@ -38,11 +45,11 @@
     cl = clean -xdf
 [user]
     name = Nedyalko Nikolov
-    email = nsndeck@gmail.com
+    email = nedyalko.nikolov@softwaregroup.com
 [difftool "sourcetree"]
 	cmd = 'C:/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/vsdiffmerge.exe' $LOCAL $REMOTE //t
 [http]
-	postBuffer = 5242880000
+	postBuffer = 52428800
 [branch]
 	autosetuprebase = always
 [push]
