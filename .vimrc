@@ -27,6 +27,12 @@ set backspace=indent,eol,start
 " show a completion popup for commands
 set wildmenu
 
+"shortcuts
+:noremap <silent> <c-l> :noh<cr><c-l>
+:imap <C-S> <ESC>:wa<CR>
+:map <C-S> :wa<CR>
+
+
 "let g:NERDTreeRespectWildIgnore = 1
 
 " Don't blink at me!
