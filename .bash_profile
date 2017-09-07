@@ -1,19 +1,12 @@
-alias g=git
-alias tra="tns run android"
-alias tda="tns debug android"
-alias tta="tns test android"
-alias tla="tns livesync android"
-alias tlat="tns livesync android --path tests"
-alias trat="tns run android --path tests"
-alias trab="tns run android --bundle"
-alias ll="ls -al"
-alias gs="git status"
-
-###-tns-completion-start-###
-if [ -f C:/Users/nnikolov/.tnsrc ]; then 
-    source C:/Users/nnikolov/.tnsrc 
-fi
-###-tns-completion-end-###
 if [ -f ~/.bash_functions ]; then 
     source ~/.bash_functions 
 fi
+
+if [ -f ~/.bash_aliases ]; then 
+    source ~/.bash_aliases 
+fi
+
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\[\033[32m\] \w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "

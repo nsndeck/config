@@ -29,9 +29,17 @@ set wildmenu
 
 "shortcuts
 :noremap <silent> <c-l> :noh<cr><c-l>
-:imap <C-S> <ESC>:wa<CR>
-:map <C-S> :wa<CR>
+" c-s shortcuts do not work on linux
+" :imap <C-S> <ESC>:wa<CR>
+" :map <C-S> :wa<CR>
 
+" nerdtree shortcuts
+:nnoremap <silent> <F2> :NERDTreeToggle<CR>
+
+" pyhton
+autocmd FileType python nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
+" node
+autocmd FileType javascript nnoremap <buffer> <F5> :exec '!node' shellescape(@%, 1)<cr>
 
 "let g:NERDTreeRespectWildIgnore = 1
 
@@ -84,6 +92,34 @@ set ttyfast
 set laststatus=2
 
 set nocompatible
+
+set viminfo=%,<800,'10,/50,:100,h,f0,n~/.vim/cache/.viminfo
+
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage plugins
+Plugin 'VundleVim/Vundle.vim'
+
+" add nerdtree
+Plugin 'scrooloose/nerdtree'
+
+" add nerdcommenter
+Plugin 'scrooloose/nerdcommenter'
+
+" add surround
+Plugin 'tpope/vim-surround'
+
+call vundle#end()
+filetype plugin indent on
+
+" nerdtree settings
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+let NERDTreeQuitOnOpen=1
+let NERDTreeWize=1000
 
 "autosave buffers
 set autowriteall
