@@ -1,6 +1,3 @@
-
-###-tns-completion-start-###
-if [ -f C:/Users/nnikolov/.tnsrc ]; then 
-    source C:/Users/nnikolov/.tnsrc 
+if [ -f ~/.bash_profile ]; then 
+    source ~/.bash_profile
 fi
-###-tns-completion-end-###

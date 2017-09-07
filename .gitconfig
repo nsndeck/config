@@ -1,6 +1,7 @@
 [merge]
-    tool = winmerge
+    #tool = winmerge
     #tool = vimdiff
+    tool = meld
 [mergetool "kdiff3"]
 	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
 [mergetool "winmerge"]
@@ -10,10 +11,16 @@
     cmd = \"C:/Program Files (x86)/WinMerge/winmergeu.exe\" -u -e -dl \"Base\" -dr \"Mine\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 [diff]
     #tool = vimdiff
-    tool = winmerge
+    #tool = winmerge
+    tool = meld
 [difftool "winmerge"]
 	path = C:/Program Files (x86)/WinMerge/winmergeu.exe
 	cmd = \"C:/Program Files (x86)/WinMerge/winmergeu.exe\" -r -u \"$LOCAL\" \"$REMOTE\"
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    #cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 [format]
 	pretty = %Cblue%h%Creset %Cgreen[%cr]%Creset (%an) %s
 [alias]
@@ -27,8 +34,8 @@
     c = commit -m
     ci = commit
     ca = commit --amend
-    d = diff
-    dc = diff --cached
+    #d = diff
+    #dc = diff --cached
     dt = difftool
     dtc = difftool --cached
     #pl = "!f() { git fetch; git rebase --preserve-merges origin/`git rev-parse --abbrev-ref HEAD` ; }; f"
@@ -42,7 +49,7 @@
     out = log origin..HEAD
     # Alternate log display from Scott Chacon
     lol = log --pretty=oneline --abbrev-commit --graph --decorate
-    cl = clean -xdf
+    clean = clean -xdf
 [user]
     name = Nedyalko Nikolov
     email = nedyalko.nikolov@softwaregroup.com
@@ -56,6 +63,7 @@
 	default = upstream
 [core]
 	compression = 0
+	editor = vim
 [mergetool "sourcetree"]
 	cmd = 'C:/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/vsdiffmerge.exe' $REMOTE $LOCAL $BASE $MERGED //m
 	trustExitCode = true
