@@ -1,5 +1,8 @@
 alias g='git'
-alias ll='ls -alh --group-directories-first --color=auto'
+alias ls='ls --group-directories-first --color=auto'
+alias ll='ls -alhF'
+alias la='ls -A'
+alias l='ls -CF'
 alias gs='git status'
 
 # ut-tools
