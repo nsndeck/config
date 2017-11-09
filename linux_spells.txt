@@ -88,6 +88,12 @@ grep --exclude-dir={node_modules,platforms} -rnw "path" -e "pattern" - find all 
 source ~/.bashrc (. ~/.bashrc - short version) - reloads .bashrc in case there is a change in it. For example adding a new alias.
 /etc/group - stores information about user groups in linux
 
+tar -czvf archive.tar.gz dir_to_archive
+tar -czvf archive.tar.gz -T file_with_list_to_archive
+tar -zxvf archive.tar.gz
+
+tar -tf archive.tar.gz - shows (lists) the content of archive.tar.gz 
+
 TNS
 
 Run in folder where tns node module is installed.
