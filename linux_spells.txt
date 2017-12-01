@@ -81,6 +81,7 @@ git commit -c ORIG_HEAD - will commit with the original commit message
 Linux:
 
 find . -iname \*.JPG - finds all JPG and jpg files starting from the current directory (.)
+find . -iname "*.jpg" -exec rm {} \; - remove every jpg file
 rm -rf dirName - removes a directory with all its contents
 grep --exclude=*.tgz -rnw "path" -e "pattern" - find all files that contains string pattern within directory 'path' -r recursive, -w - match whole word, -n line number
 grep --exclude-dir={node_modules,platforms} -rnw "path" -e "pattern" - find all files that contains string pattern within directory 'path' -r recursive, -w - match whole word, -n line number
