@@ -12,3 +12,7 @@ find_string_dir () {
 find_file () {
     find . -type f -iname $1
 }
+
+create_bash_script() {
+    printf "#!/bin/bash\n\n\n" > $1 && chmod +x $1 && vim -c ":3j" -c "startinsert" $1
+}
