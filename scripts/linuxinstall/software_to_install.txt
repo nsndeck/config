@@ -1,0 +1,16 @@
+    git
+    java8
+    nodejs
+    skype
+    rethinkdb
+    postgresql
+pgAdmin4
+    kibana
+    elasticsearch
+    logstash
+    postman
+androidstudio
+    visualstudio code
+    tmux
+vim + settings
+    zsh
