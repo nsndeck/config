@@ -2,7 +2,7 @@
 
 # install zsh
 
-sudo apt-get install -y zsh
+#sudo apt-get install -y zsh
 
 # clone oh-my-zsh from git hub to ~/.oh-my-zsh
 
@@ -14,4 +14,4 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
 # change default shell
 
-chsh -s /bin/zsh
+#chsh -s /bin/zsh
