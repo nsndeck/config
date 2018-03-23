@@ -1,0 +1,4 @@
+export GIT_WORK="work/git"
+export SCRIPTS=~/"$GIT_WORK/config/scripts"
+export EDGE=~/"$GIT_WORK/edge-service"
+export ROUTER=~/"$GIT_WORK/route-parser"
