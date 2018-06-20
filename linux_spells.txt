@@ -95,6 +95,9 @@ tar -zxvf archive.tar.gz
 
 tar -tf archive.tar.gz - shows (lists) the content of archive.tar.gz 
 
+gsettings get org.gnome.desktop.wm.keybindings switch-input-source - get the value of a shortcut for changing languages, set sets a shortcut
+gsettings get org.gnome.desktop.wm.keybindings switch-input-source-backward
+
 TNS
 
 Run in folder where tns node module is installed.
