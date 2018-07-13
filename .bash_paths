@@ -1,0 +1,16 @@
+export SCRIPTS=~/work/scripts
+export JS_HOME=/usr/share/logstash
+export ES_HOME=/usr/share/elasticsearch
+export KIBANA_HOME=/usr/share/kibana
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+#export PATH="$PATH:$HOME/.rvm/bin"
+# add bcp and sqlcmd to path
+#export PATH="$PATH:/opt/mssql-tools/bin"
+#
+# Add gradle to path
+export GRADLE_HOME=/opt/gradle/current
+export PATH="$PATH:$GRADLE_HOME/bin"
+
+export MAVEN_HOME=/opt/apache-maven-3.5.3
+export PATH="$PATH:$MAVEN_HOME/bin"

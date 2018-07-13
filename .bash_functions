@@ -39,3 +39,7 @@ create_dockerfile() {
     fi
     printf "# vim:set ft=dockerfile:\n\n\n" > $dockerfileName && vim -c ":3j" -c "startinsert" $dockerfileName
 }
+
+delete_nodemodules() {
+    find -type d -name "node_modules" -prune -exec rm -rf {} \;
+}
