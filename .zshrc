@@ -4,9 +4,6 @@ export EDITOR="vim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
-export SCRIPTS=~/work/scripts
-
-
 #if you do a 'rm *', Zsh will give you a sanity check!
 setopt RM_STAR_WAIT
 
@@ -61,16 +58,7 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-
 source ~/.bash_functions
 source ~/.bash_aliases
 source ~/.bash_variables
-
-export JS_HOME=/usr/share/logstash
-export ES_HOME=/usr/share/elasticsearch
-export KIBANA_HOME=/usr/share/kibana
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-# add bcp and sqlcmd to path
-export PATH="$PATH:/opt/mssql-tools/bin"
+source ~/.bash_paths
