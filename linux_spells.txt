@@ -99,6 +99,9 @@ tar -xzvf archive.tar.gz -C targetDirectory - extracts files from archive into a
 gsettings get org.gnome.desktop.wm.keybindings switch-input-source - get the value of a shortcut for changing languages, set sets a shortcut
 gsettings get org.gnome.desktop.wm.keybindings switch-input-source-backward
 
+stat --format '%a' <file> - get current permissions for a file like a number (eg. 755)
+ip.dst_host == "192.168.133.163" || ip.dst_host == "192.168.128.88" - wireshark filter example
+
 TNS
 
 Run in folder where tns node module is installed.
