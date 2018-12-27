@@ -1,0 +1,57 @@
+openssl s_client -showcerts -connect 192.168.133.104:6443
+
+echo -n | openssl s_client -connect 192.168.133.104:6443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > examplecert.crt
+
+openssl x509 -in examplecert.crt -text
+
+echo '[ subject_alt_name ]' >> openssl.cnf
+
+echo 'subjectAltName = DNS:example.mydomain1.com, DNS:example.mydomain2.com, DNS:example.mydomain3.com, DNS: localhost'>> openssl.cnf
+
+openssl req -x509 -nodes -newkey rsa:2048 -config openssl.cnf -extensions subject_alt_name -keyout private.key -out self-signed.pem -subj '/C=bg/ST=sofia/L=sofia/O=softwaregroup/OU=servicing/CN=cas/emailAddress=postmaster@example.com' -days 365
+
+openssl pkcs12 -export -keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-3DES -export -in self-signed.pem -inkey private.key -name cascert -out keystore.p12
+
+keytool -importkeystore -destkeystore keystore.jks -deststoretype PKCS12 -srcstoretype PKCS12 -srckeystore keystore.p12
+
+sudo keytool -delete -alias cascert -keystore /usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts
+
+keytool -list -keystore /usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts
+
+sudo keytool -import -alias cascert -file self-signed.pem -keystore /usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts
+
+openssl pkcs12 -export -in self-signed.pem -inkey private.key -out self-signed.pfx
+
+openssl x509 -in self-signed.pem -inform PEM -out self-signed.crt
+
+------------------------------------------------------------------------------------------------------------------------
+Process of issuing and using a self signed certificate for wave-workflow service
+
+get openssl.cnf file from opensll location - /etc/ssl/openssl.cnf
+
+copy openssl.cnf to a different location its not a good idea to overwrite the default one
+
+### Edit openssl.cnf file to include some alternate names in case you will use this certificate from different places (hosts) (keep in mind that the default host name should also be there)
+echo '[ subject_alt_name ]' >> openssl.cnf
+
+echo 'subjectAltName = DNS:wave-workflow, DNS:wave-workflow1, DNS: localhost'>> openssl.cnf
+
+### Create certificate 
+openssl req -x509 -nodes -newkey rsa:2048 -config openssl.cnf -extensions subject_alt_name -keyout private.key -out self-signed.pem -subj '/C=bg/ST=sofia/L=sofia/O=softwaregroup/OU=servicing/CN=wave-workflow/emailAddress=postmaster@example.com' -days 365
+
+### Export certificate to PKCS12 format
+openssl pkcs12 -export -keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-3DES -export -in self-signed.pem -inkey private.key -name workflowcert -out keystore.p12
+
+### Create keystore
+keytool -importkeystore -destkeystore keystore.jks -deststoretype PKCS12 -srcstoretype PKCS12 -srckeystore keystore.p12
+
+### Copy 'keystore.jks' to the location specified by application.yml file
+(ssl:
+        key-store-type: PKCS12
+        key-password: changeit
+        key-store: file:./config/keystore.jks
+        key-store-password: changeit
+        key-alias: workflowcert)
+
+### Import certificate inside java trusted certs
+sudo keytool -import -alias workflowcert -file self-signed.pem -keystore /usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts

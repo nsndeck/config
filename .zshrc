@@ -13,7 +13,7 @@ setopt interactivecomments
 # Zsh has a spelling corrector
 setopt CORRECT
 
-ZSH_THEME="gentoo"
+ZSH_THEME="simple"
 
 # Set up the prompt
 
@@ -31,7 +31,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-plugins=(git common-aliases)
+plugins=(common-aliases docker git)
 
 export ZSH=~/.oh-my-zsh
 source ~/.oh-my-zsh/oh-my-zsh.sh
