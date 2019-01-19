@@ -55,6 +55,9 @@ git submodule update --init --recursive - updates all submodules :-)
 git checkout -- . - restores entire info from the .git folder (will be same as in origin repo)
 git reset --hard HEAD - undo checkout all changes.
 
+#for deployment purposes
+git clone -b 'v2.0' --single-branch --depth 1 https://github.com/git/git.git
+
 Advanced scenarios:
 
 1. Rebasing our localBranch onto master. (resolving conflicts using theirs and ours options).
@@ -101,6 +104,10 @@ gsettings get org.gnome.desktop.wm.keybindings switch-input-source-backward
 
 stat --format '%a' <file> - get current permissions for a file like a number (eg. 755)
 ip.dst_host == "192.168.133.163" || ip.dst_host == "192.168.128.88" - wireshark filter example
+
+lspci -nnk - list all pci devices on computer
+add driver of the wireless card to blacklist within /etc/modprobe/blacklist.conf
+another option is to add a line in '/etc/network/interfaces' example -> 'iface wlan0 inet manual' 
 
 TNS
 
