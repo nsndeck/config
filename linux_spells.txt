@@ -109,6 +109,12 @@ lspci -nnk - list all pci devices on computer
 add driver of the wireless card to blacklist within /etc/modprobe/blacklist.conf
 another option is to add a line in '/etc/network/interfaces' example -> 'iface wlan0 inet manual' 
 
+split flac+cue file
+shnsplit -f file.cue -t %n-%t -o flac file.flac
+
+sudo lsof -i -P -n | grep LISTEN - view all listening ports
+sudo netstat -tulpn | grep LISTEN
+
 TNS
 
 Run in folder where tns node module is installed.
