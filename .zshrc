@@ -31,7 +31,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-plugins=(common-aliases docker git)
+plugins=(common-aliases docker git zsh-autosuggestions zsh-syntax-highlighting)
 
 export ZSH=~/.oh-my-zsh
 source ~/.oh-my-zsh/oh-my-zsh.sh
