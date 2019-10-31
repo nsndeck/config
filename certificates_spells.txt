@@ -55,3 +55,5 @@ keytool -importkeystore -destkeystore keystore.jks -deststoretype PKCS12 -srcsto
 
 ### Import certificate inside java trusted certs
 sudo keytool -import -alias workflowcert -file self-signed.pem -keystore /usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts
+sudo keytool -import -alias workflowcert -file self-signed.pem -keystore $JAVA_HOME/jre/lib/security/cacerts -keypass changeit -storepass changeit -noprompt
+

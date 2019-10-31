@@ -99,6 +99,9 @@ tar -zxvf archive.tar.gz
 tar -tf archive.tar.gz - shows (lists) the content of archive.tar.gz 
 tar -xzvf archive.tar.gz -C targetDirectory - extracts files from archive into a targetDirectory
 
+Note that if your tarball already contains a directory name you want to change, add the --strip-components=1 option:
+tar xf archive.tar -C /target/directory --strip-components=1
+
 gsettings get org.gnome.desktop.wm.keybindings switch-input-source - get the value of a shortcut for changing languages, set sets a shortcut
 gsettings get org.gnome.desktop.wm.keybindings switch-input-source-backward
 

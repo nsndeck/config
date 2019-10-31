@@ -60,6 +60,14 @@ else
     "set guifont=DejaVu_Sans_Mono:h12
 endif
 
+" syntax enable
+" set background=dark
+" let g:solarized_termcolors=256
+" colorscheme solarized
+" let g:solarized_diffmode="high"
+
+colorscheme elflord
+
 set guioptions-=T "No toolbar
 set guioptions-=m "No menubar
 set guioptions-=r "No right scrollbar
@@ -85,7 +93,6 @@ if has("gui_running")
     set columns=230
     set t_Co=256
     set background=dark
-    colorscheme evening 
 endif
 
 set ttyfast
