@@ -1,5 +1,7 @@
 export GIT_WORK="work/git"
 export SCRIPTS=~/"$GIT_WORK/config/scripts"
+export WORKFLOW=~/"$GIT_WORK/workflow-service"
+export VELOCITYDIR="$WORKFLOW/src/main/resources/velocity"
 export EDGE=~/"$GIT_WORK/edge-service"
 export ROUTER=~/"$GIT_WORK/route-parser"
 export JAVA_CERTS=$JAVA_HOME/jre/lib/security/cacerts

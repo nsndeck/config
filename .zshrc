@@ -31,7 +31,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-plugins=(common-aliases docker git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(common-aliases docker git gitfast zsh-autosuggestions zsh-syntax-highlighting ubuntu)
 
 export ZSH=~/.oh-my-zsh
 source ~/.oh-my-zsh/oh-my-zsh.sh
@@ -62,3 +62,7 @@ source ~/.bash_functions
 source ~/.bash_aliases
 source ~/.bash_variables
 source ~/.bash_paths
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/nedyalkonikolov/.sdkman"
+[[ -s "/home/nedyalkonikolov/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nedyalkonikolov/.sdkman/bin/sdkman-init.sh"

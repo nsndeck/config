@@ -15,3 +15,4 @@ alias dcl='docker container ls -a --format "table {{.ID}}\t {{.Names}}\t {{.Imag
 alias dil='docker image ls -a'
 alias dxc='docker exec -ti'
 alias drdi='docker rmi $(docker image ls -q -f "dangling=true")'
+alias dlog='docker logs -f --tail 500'
