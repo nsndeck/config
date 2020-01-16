@@ -118,24 +118,45 @@ shnsplit -f file.cue -t %n-%t -o flac file.flac
 sudo lsof -i -P -n | grep LISTEN - view all listening ports
 sudo netstat -tulpn | grep LISTEN
 
-TNS
+### Setting ssh authorization with a remote server
+1. Generate certificate private/public pair.
+2. copy public part in a "~/.ssh/authorized_keys" - cat .ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+3. Set permissions for authorized_keys file to 600 - chmod 600 .ssh/authorized_keys
+4. Set permissions for .ssh directory to 700 - chmod 700 .ssh
+5. Restore connection (needed for SELinux security enabled linux) - restorecon -R -v ~/.ssh
+6. (last resort if user home directory is not /home/username) sudo semanage fcontext --add -t ssh_home_t "/home/username/.ssh(/.*)?";
 
-Run in folder where tns node module is installed.
-npm install nativescript.tgz (get latest from "K:\DISTRIBUTIONS\NativeScript\Builds\CLI\Stable\nativescript.tgz")
-tns create projectName - creates a project with projectName within the current directory
-tns platform add android --path=projectPath --frameworkPath=tns.gzip - add android platform
-tns prepare android --path=projectPath - prepares android platform (creates bootstrap.js file)
+Process of issuing and using a self signed certificate for wave-workflow service
 
-ADB
+get openssl.cnf file from opensll location - /etc/ssl/openssl.cnf
 
-run-as org.nativescript.NativeScript ls -al files/app/cuteness.io
+copy openssl.cnf to a different location its not a good idea to overwrite the default one
 
-cross-platform-modules
+### Edit openssl.cnf file to include some alternate names in case you will use this certificate from different places (hosts) (keep in mind that the default host name should also be there)
+echo '[ subject_alt_name ]' >> openssl.cnf
 
-npm install grunt && npm install grunt-ts && npm install typescript@1.4.1
+echo 'subjectAltName = DNS:wave-workflow, DNS:wave-workflow1, DNS: localhost'>> openssl.cnf
 
-grunt --verbose --runtslint=false
-grunt ts
+### Create certificate 
+openssl req -x509 -nodes -newkey rsa:2048 -config openssl.cnf -extensions subject_alt_name -keyout private.key -out self-signed.pem -subj '/C=bg/ST=sofia/L=sofia/O=softwaregroup/OU=servicing/CN=wave-workflow/emailAddress=postmaster@example.com' -days 365
+
+### Export certificate to PKCS12 format
+openssl pkcs12 -export -keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-3DES -export -in self-signed.pem -inkey private.key -name workflowcert -out keystore.p12
+
+### Create keystore
+keytool -importkeystore -destkeystore keystore.jks -deststoretype PKCS12 -srcstoretype PKCS12 -srckeystore keystore.p12
+
+### Copy 'keystore.jks' to the location specified by application.yml file
+(ssl:
+        key-store-type: PKCS12
+        key-password: changeit
+        key-store: file:./config/keystore.jks
+        key-store-password: changeit
+        key-alias: workflowcert)
+
+### Import certificate inside java trusted certs this step should also be performed on the calling machine (dfa-solution-controller)
+sudo keytool -import -alias workflowcert -file self-signed.pem -keystore /usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts
+
 
 Command Editing Shortcuts
 
