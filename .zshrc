@@ -13,7 +13,7 @@ setopt interactivecomments
 # Zsh has a spelling corrector
 setopt CORRECT
 
-ZSH_THEME="gentoo"
+ZSH_THEME="bira"
 
 # Set up the prompt
 
@@ -31,7 +31,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-plugins=(git common-aliases)
+plugins=(common-aliases docker git zsh-autosuggestions zsh-syntax-highlighting)
 
 export ZSH=~/.oh-my-zsh
 source ~/.oh-my-zsh/oh-my-zsh.sh
@@ -45,7 +45,7 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
+#eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -62,3 +62,7 @@ source ~/.bash_functions
 source ~/.bash_aliases
 source ~/.bash_variables
 source ~/.bash_paths
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+#export SDKMAN_DIR="/Users/nedyalkonikolov/.sdkman"
+#[[ -s "/Users/nedyalkonikolov/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/nedyalkonikolov/.sdkman/bin/sdkman-init.sh"

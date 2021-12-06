@@ -8,6 +8,6 @@ target=$2
 #done
 #
 while read f; do
-    cp --parents -v $f $target
+   gcp --parents -v $f $target
 #    dirname $f    
 done <$sourceFile 

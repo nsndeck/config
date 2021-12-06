@@ -10,14 +10,16 @@
 	path = C:/Program Files (x86)/WinMerge/winmergeu.exe
     cmd = \"C:/Program Files (x86)/WinMerge/winmergeu.exe\" -u -e -dl \"Base\" -dr \"Mine\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 [diff]
-    #tool = vimdiff
+    tool = vimdiff
     #tool = winmerge
-    tool = meld
+    #tool = meld
 [difftool "winmerge"]
 	path = C:/Program Files (x86)/WinMerge/winmergeu.exe
 	cmd = \"C:/Program Files (x86)/WinMerge/winmergeu.exe\" -r -u \"$LOCAL\" \"$REMOTE\"
 [difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
+    #cmd = meld "$LOCAL" "$REMOTE"
+    trustExitCode = true
+    cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
 [mergetool "meld"]
     cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
     #cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
@@ -51,8 +53,8 @@
     lol = log --pretty=oneline --abbrev-commit --graph --decorate
     clean = clean -xdf
 [user]
-    name = Nedyalko Nikolov
-    email = nedyalko.nikolov@softwaregroup.com
+	name = Nedyalko Nikolov
+	email = nedyalko.nikolov@softwaregroup.com
 [difftool "sourcetree"]
 	cmd = 'C:/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/vsdiffmerge.exe' $LOCAL $REMOTE //t
 [http]
