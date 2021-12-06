@@ -14,3 +14,6 @@ export PATH="$PATH:$GRADLE_HOME/bin"
 
 export MAVEN_HOME=/opt/apache-maven-3.5.3
 export PATH="$PATH:$MAVEN_HOME/bin"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PYTHON_HOME=/Users/nedyalkonikolov/Library/Python/3.7
+export PATH="$PYTHON_HOME/bin:$PATH"
