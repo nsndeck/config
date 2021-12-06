@@ -15,17 +15,13 @@ alias gri='git rebase -i HEAD~2'
 alias grm='git rebase master'
 alias gplf='g pl && gfa'
 
-# ut-tools
-alias uts='ut status'
-alias utu='ut update'
-alias utud='ut usedev'
-
 #alias pgadmin4='. /home/nsndeck/pgadmin4/bin/activate; python /home/nsndeck/pgadmin4/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py'
-alias pgadmin4='. /home/nsndeck/pgadmin4_1.6/bin/activate; python /home/nsndeck/pgadmin4_1.6/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py'
+#alias pgadmin4='. /home/nsndeck/pgadmin4_1.6/bin/activate; python /home/nsndeck/pgadmin4_1.6/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py'
 
 alias d='docker'
 alias dps='docker ps --format "table {{.ID}}\t {{.Names}}\t {{.Status}}\t {{.Ports}}"'
-alias dcl='docker container ls -a --format "table {{.ID}}\t {{.Names}}\t {{.Status}}\t {{.Ports}}"'
+#alias dcl='docker container ls -a --format "table {{.ID}}\t {{.Names}}\t {{.Status}}\t {{.Ports}}"'
+alias dcl='docker container ls -a --format "table {{.ID}}\t {{.Names}}\t {{.Image}}\t {{.Status}}\t {{.Ports}}"'
 alias dil='docker image ls -a'
 alias dxc='docker exec -ti'
 
@@ -35,3 +31,6 @@ alias java11_12='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.12.
 
 #default java 11
 java11_12
+
+alias drdi='docker rmi $(docker image ls -q -f "dangling=true")'
+alias dlog='docker logs -f --tail 500'

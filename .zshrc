@@ -14,6 +14,7 @@ setopt interactivecomments
 setopt CORRECT
 
 ZSH_THEME="bira"
+# ZSH_THEME="simple"
 
 # Set up the prompt
 
@@ -32,6 +33,7 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
 plugins=(common-aliases docker git zsh-autosuggestions zsh-syntax-highlighting)
+# plugins=(common-aliases docker git gitfast zsh-autosuggestions zsh-syntax-highlighting ubuntu)
 
 export ZSH=~/.oh-my-zsh
 source ~/.oh-my-zsh/oh-my-zsh.sh
@@ -66,3 +68,4 @@ source ~/.bash_paths
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #export SDKMAN_DIR="/Users/nedyalkonikolov/.sdkman"
 #[[ -s "/Users/nedyalkonikolov/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/nedyalkonikolov/.sdkman/bin/sdkman-init.sh"
+
