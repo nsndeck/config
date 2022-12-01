@@ -104,22 +104,22 @@ set viminfo=%,<800,'10,/50,:100,h,f0,n~/.vim/cache/.viminfo
 
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 
 " let Vundle manage plugins
-Plugin 'VundleVim/Vundle.vim'
+"Plugin 'VundleVim/Vundle.vim'
 
 " add nerdtree
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 
 " add nerdcommenter
-Plugin 'scrooloose/nerdcommenter'
+"Plugin 'scrooloose/nerdcommenter'
 
 " add surround
-Plugin 'tpope/vim-surround'
+"Plugin 'tpope/vim-surround'
 
-call vundle#end()
+"call vundle#end()
 filetype plugin indent on
 
 " nerdtree settings
