@@ -32,11 +32,11 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-plugins=(common-aliases docker git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(common-aliases docker docker-compose git microk8s zsh-autosuggestions zsh-syntax-highlighting)
 # plugins=(common-aliases docker git gitfast zsh-autosuggestions zsh-syntax-highlighting ubuntu)
 
-export ZSH=~/.oh-my-zsh
-source ~/.oh-my-zsh/oh-my-zsh.sh
+export ZSH=~/work/git/ohmyzsh
+source ~/work/git/ohmyzsh/oh-my-zsh.sh
 
 # Use modern completion system
 autoload -Uz compinit

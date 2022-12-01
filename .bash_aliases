@@ -25,12 +25,12 @@ alias dcl='docker container ls -a --format "table {{.ID}}\t {{.Names}}\t {{.Imag
 alias dil='docker image ls -a'
 alias dxc='docker exec -ti'
 
-alias java8='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home'
-alias java11_7='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.7.jdk/Contents/Home'
-alias java11_12='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home'
+#alias java8='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home'
+#alias java11_7='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.7.jdk/Contents/Home'
+#alias java11_12='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home'
 
 #default java 11
-java11_12
+#java11_12
 
 alias drdi='docker rmi $(docker image ls -q -f "dangling=true")'
 alias dlog='docker logs -f --tail 500'
