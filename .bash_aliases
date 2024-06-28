@@ -32,5 +32,5 @@ alias dxc='docker exec -ti'
 #default java 11
 java11_12
 
-alias drdi='docker rmi $(docker image ls -q -f "dangling=true")'
+#alias drdi='docker rmi $(docker image ls -q -f "dangling=true")'
 alias dlog='docker logs -f --tail 500'
