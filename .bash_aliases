@@ -30,7 +30,7 @@ alias dxc='docker exec -ti'
 #alias java11_12='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home'
 
 #default java 11
-#java11_12
+java11_12
 
 alias drdi='docker rmi $(docker image ls -q -f "dangling=true")'
 alias dlog='docker logs -f --tail 500'
